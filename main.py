@@ -9,6 +9,7 @@ BIO = (
     "drafting the perfect reply to 'good night'. She said, 'That's feelings.' "
     "I said, 'No, overfitting.' Coffee?"
 )
+OUTPUT_NAME = "entry.txt"
 
 
 def write_entry(output_dir: Path) -> Path:
@@ -18,7 +19,7 @@ def write_entry(output_dir: Path) -> Path:
     if "\n" in BIO or "\r" in BIO:
         raise ValueError("the bio must be one line")
     output_dir.mkdir(parents=True, exist_ok=True)
-    artifact = output_dir / "entry.txt"
+    artifact = output_dir / OUTPUT_NAME
     artifact.write_text(BIO + "\n", encoding="utf-8")
     return artifact
 
